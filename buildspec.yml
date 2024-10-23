@@ -36,6 +36,8 @@ artifacts:
     - .env
     - composer.json
     - composer.lock
+    - appspec.yml
+    - buildspec.yml
   discard-paths: no
 
 cache:

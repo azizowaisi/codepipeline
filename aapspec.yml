@@ -1,0 +1,26 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/codepipeline  # Change this to the actual directory where your Symfony app will be deployed
+
+hooks:
+  BeforeInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: ec2-user
+    - location: scripts/clear_cache.sh
+      timeout: 300
+      runas: ec2-user
+  AfterInstall:
+    - location: scripts/set_permissions.sh
+      timeout: 300
+      runas: ec2-user
+  ApplicationStart:
+    - location: scripts/start_server.sh
+      timeout: 300
+      runas: ec2-user
+  ValidateService:
+    - location: scripts/validate.sh
+      timeout: 300
+      runas: ec2-user

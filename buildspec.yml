@@ -1,19 +1,9 @@
 version: 0.2
 
-env:
-  variables:
-    APP_ENV: prod # You can change this based on your environment
-    SYMFONY_ENV: prod
-  shell: bash
-
 phases:
   install:
     commands:
-      - echo Installing PHP and Composer
-      - yum install -y amazon-linux-extras
-      - amazon-linux-extras enable php8.1
-      - yum clean metadata
-      - yum install -y php php-cli php-json php-mbstring php-xml php-zip
+      - echo Installing Composer
       - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
       - echo Installing project dependencies
       - composer install --no-interaction --prefer-dist --optimize-autoloader
@@ -21,9 +11,9 @@ phases:
   pre_build:
     commands:
       - echo Running Symfony cache:clear
-      - php bin/console cache:clear --env=${APP_ENV}
+      - php bin/console cache:clear --env=prod
       - echo Running Symfony cache:warmup
-      - php bin/console cache:warmup --env=${APP_ENV}
+      - php bin/console cache:warmup --env=prod
 
   build:
     commands:

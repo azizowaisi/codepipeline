@@ -25,6 +25,10 @@ phases:
 
 artifacts:
   files:
+    - bin/**
+    - config/**
+    - script/**
+    - src/**
     - vendor/**
     - public/**
     - var/**

@@ -11,7 +11,7 @@ hooks:
       runas: ubuntu
     - location: scripts/clear_cache.sh
       timeout: 300
-      runas: ubuntur
+      runas: ubuntu
   AfterInstall:
     - location: scripts/set_permissions.sh
       timeout: 300

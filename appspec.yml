@@ -14,18 +14,15 @@ hooks:
     - location: scripts/clear_cache.sh
       timeout: 300
       runas: root
-    - location: scripts/set_permissions.sh
+  ApplicationStart:
+    - location: scripts/start_server.sh
       timeout: 300
       runas: root
-  ApplicationStart:
     - location: clear_apcu_cache.sh
       timeout: 300
       runas: root
       script: |
           chmod +x /var/www/codepipeline/scripts/clear_apcu_cache.sh  # Ensure the script is executable
-    - location: scripts/start_server.sh
-      timeout: 300
-      runas: root
   ValidateService:
     - location: scripts/validate.sh
       timeout: 300

@@ -8,7 +8,7 @@ hooks:
   AfterInstall:
     - location: scripts/install_dependencies.sh
       timeout: 300
-      runas: root
+      runas: ec2-user
       script: |
         chmod +x /var/www/codepipeline/scripts/install_dependencies.sh  # Ensure the script is executable
     - location: scripts/clear_cache.sh

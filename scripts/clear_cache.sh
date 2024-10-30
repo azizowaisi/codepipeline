@@ -1,4 +1,9 @@
 #!/bin/bash
 cd /var/www/codepipeline
-php bin/console cache:clear --env=prod
-php bin/console cache:warmup --env=prod
+
+composer dump-autoload --no-dev --classmap-authoritative
+
+php bin/console cache:clear --env=prod --no-warmup;
+
+chmod -R 777 var/cache
+chmod -R 777 var/log

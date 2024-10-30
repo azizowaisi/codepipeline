@@ -5,14 +5,13 @@ files:
     destination: /var/www/codepipeline  # Change this to the actual directory where your Symfony app will be deployed
 
 hooks:
-  BeforeInstall:
+  AfterInstall:
     - location: scripts/install_dependencies.sh
       timeout: 300
       runas: root
     - location: scripts/clear_cache.sh
       timeout: 300
       runas: root
-  AfterInstall:
     - location: scripts/set_permissions.sh
       timeout: 300
       runas: root

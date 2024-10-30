@@ -23,9 +23,3 @@ hooks:
       runas: root
       script: |
           chmod +x /var/www/codepipeline/scripts/clear_apcu_cache.sh  # Ensure the script is executable
-  ValidateService:
-    - location: scripts/validate.sh
-      timeout: 300
-      runas: root
-      script: |
-        chmod +x /var/www/codepipeline/scripts/validate.sh

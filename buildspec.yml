@@ -27,7 +27,7 @@ artifacts:
   files:
     - bin/**
     - config/**
-    - script/**
+    - scripts/**
     - src/**
     - vendor/**
     - public/**

@@ -8,19 +8,19 @@ hooks:
   BeforeInstall:
     - location: scripts/install_dependencies.sh
       timeout: 300
-      runas: ubuntu
+      runas: root
     - location: scripts/clear_cache.sh
       timeout: 300
-      runas: ubuntu
+      runas: root
   AfterInstall:
     - location: scripts/set_permissions.sh
       timeout: 300
-      runas: ubuntu
+      runas: root
   ApplicationStart:
     - location: scripts/start_server.sh
       timeout: 300
-      runas: ubuntu
+      runas: root
   ValidateService:
     - location: scripts/validate.sh
       timeout: 300
-      runas: ubuntu
+      runas: root
